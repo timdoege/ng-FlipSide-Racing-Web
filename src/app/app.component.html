@@ -1,28 +1,20 @@
 <div>
   <md-toolbar color="primary">
-    <span><md-icon>mood</md-icon></span>
+    <span routerLink="/"><md-icon>ic_drive_eta</md-icon></span>
 
-    <span>Yay, {{title}}!</span>
+    <span>{{title}}</span>
 
     <button md-icon-button [md-menu-trigger-for]="menu">
       <md-icon>more_vert</md-icon>
     </button>
   </md-toolbar>
   <md-menu x-position="before" #menu="mdMenu">
-    <button md-menu-item>Option 1</button>
-    <button md-menu-item>Option 2</button>
+     <button md-menu-item routerLink="/dashboard">Dashboard</button>
+    <button md-menu-item routerLink="/events">Race Events</button>
+    <button md-menu-item routerLink="/racers">Racers</button>
+    <button md-menu-item routerLink="/statistics">Statistics</button>
   </md-menu>
+  <router-outlet></router-outlet>
 
-  <md-card>
-    <button md-button>All</button>
-    <button md-raised-button>Of</button>
-    <button md-raised-button color="primary">The</button>
-    <button md-raised-button color="accent">Buttons</button>
-  </md-card>
 
-  <span class="done">
-    <button md-fab>
-      <md-icon>check circle</md-icon>
-    </button>
-  </span>
 </div>

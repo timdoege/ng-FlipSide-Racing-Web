@@ -2,27 +2,22 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.3.
 
-## Development server
+## Data model (Flipside Racing)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Data is collected from an offline-version of the Flipside Racing database, served as JSON from here:
+http://galdor.tm.dom:8080/TMSupportAlert/misc
 
-## Code scaffolding
+For testing, the entities can be placed in the <code>flipside-db.json</code> file.
+Serve with json-server (https://www.npmjs.com/package/json-server) from the project root using
+<code>json-server --watch db.json</code> (accessible as http://localhost:3000/bestlap etc.)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+## Components
 
-## Build
+1.  Dashboard
+1.  Race events overview
+1.  Race details
+1.  Racers
+1.  Racer details
+1.  Best laps
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
