@@ -1,14 +1,12 @@
-import { StatisticsDashboardComponent } from '../statistics/statistics-dashboard/statistics-dashboard.component';
-import { DashboardComponent } from './../dashboard/dashboard.component';
-import { EventDetailComponent } from './../race-event/event-detail/event-detail.component';
-import { EventListComponent } from './../race-event/event-list/event-list.component';
+import { StatisticsDashboardComponent } from './statistics/statistics-dashboard/statistics-dashboard.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { EventListComponent } from './race-event/event-list/event-list.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: 'events', component: EventListComponent },
-  { path: 'events/:id', component: EventDetailComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'statistics', component: StatisticsDashboardComponent }

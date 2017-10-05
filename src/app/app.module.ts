@@ -1,5 +1,5 @@
 import { RaceEventFactory } from './factory/race-event.factory';
-import { AppRoutingModule } from './app-routing/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { StatisticsModule } from './statistics/statistics.module';
 import { RaceEventModule } from './race-event/race-event.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
