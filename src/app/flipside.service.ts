@@ -4,7 +4,10 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
-const flipsideBaseUrl = 'http://galdor.tm.dom:8080/TMSupportAlert/misc/';  // URL to web api
+const apiServer = 'http://localhost:8080';
+// const apiServer = 'http://galdor.tm.dom:8080';
+const baseUrl = apiServer + '/TMSupportAlert';
+const flipsideBaseUrl = baseUrl + '/misc/';  // URL to web api
 // const flipsideBaseUrl = 'http://localhost:3000/';  // URL to web api
 const flipsideEventsUrl = flipsideBaseUrl + 'events';
 const flipsideEventIdUrl = flipsideBaseUrl + 'events/';

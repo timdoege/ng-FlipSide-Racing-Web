@@ -1,4 +1,4 @@
-import { RaceEventPageComponent } from './race-event-page/race-event-page.component';
+import { RaceEventListPageComponent } from './race-event-list-page/race-event-list-page.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -8,16 +8,8 @@ import { Routes, RouterModule } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    component: RaceEventPageComponent, children: [
-      {
-        path: '',
-        loadChildren: './race-event-list/race-event-list.module#RaceEventListModule'
-      },
-      {
-        path: ':id',
-        loadChildren: './race-event-detail/race-event-detail.module#RaceEventDetailModule'
-      }
-    ]
+    pathMatch: 'full',
+    component: RaceEventListPageComponent
   }
 ];
 
@@ -29,4 +21,6 @@ export const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class RaceEventRoutingModule { }
+export class RaceEventListRoutingModule { }
+
+

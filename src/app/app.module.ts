@@ -1,7 +1,5 @@
 import { RaceEventFactory } from './factory/race-event.factory';
 import { AppRoutingModule } from './app-routing.module';
-import { StatisticsModule } from './statistics/statistics.module';
-import { RaceEventModule } from './race-event/race-event.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
 import { FlipsideService } from './flipside.service';
@@ -11,12 +9,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DashboardComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -24,8 +20,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HttpModule,
     MaterialModule,
     BrowserAnimationsModule,
-    RaceEventModule,
-    StatisticsModule,
     AppRoutingModule
   ],
   providers: [FlipsideService, RaceEventFactory],

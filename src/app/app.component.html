@@ -1,4 +1,4 @@
-<div>
+<main>
   <md-toolbar color="primary">
     <span routerLink="/"><md-icon>ic_drive_eta</md-icon></span>
 
@@ -9,12 +9,10 @@
     </button>
   </md-toolbar>
   <md-menu x-position="before" #menu="mdMenu">
-     <button md-menu-item routerLink="/dashboard">Dashboard</button>
+    <button md-menu-item routerLink="/dashboard">Dashboard</button>
     <button md-menu-item routerLink="/events">Race Events</button>
     <button md-menu-item routerLink="/racers">Racers</button>
     <button md-menu-item routerLink="/statistics">Statistics</button>
   </md-menu>
   <router-outlet></router-outlet>
-
-
-</div>
+</main>

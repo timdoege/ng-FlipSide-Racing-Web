@@ -1,14 +1,15 @@
 import { MaterialModule } from '@angular/material';
+import { StatisticsPageComponent } from './statistics-page/statistics-page.component';
+import { StatisticsRoutingModule } from './statistics-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StatisticsDashboardComponent } from './statistics-dashboard/statistics-dashboard.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    StatisticsRoutingModule
   ],
-  exports: [StatisticsDashboardComponent],
-  declarations: [StatisticsDashboardComponent]
+  declarations: [StatisticsPageComponent]
 })
 export class StatisticsModule { }

@@ -1,0 +1,10 @@
+<md-card>
+  <md-nav-list>
+      <md-list-item *ngFor="let rEvent of raceEvents">
+        <a md-line href="events/{{rEvent.id}}">{{ rEvent.name }}</a>
+        <button md-icon-button (click)="infoClicked=!infoClicked">
+          <md-icon>info</md-icon>
+        </button>
+      </md-list-item>
+  </md-nav-list>
+</md-card>

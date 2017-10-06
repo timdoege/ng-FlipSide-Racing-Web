@@ -1,21 +1,17 @@
-import { AppRoutingModule } from './../app-routing/app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { RaceEventRoutingModule } from './race-event-routing.module';
+import { RaceEventPageComponent } from './race-event-page/race-event-page.component';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { EventListComponent } from './event-list/event-list.component';
-import { EventDetailComponent } from './event-detail/event-detail.component';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
     MaterialModule,
-    BrowserAnimationsModule,
-    AppRoutingModule
+    RaceEventRoutingModule
   ],
-  exports:      [ EventListComponent, EventDetailComponent ],
-  declarations: [EventListComponent, EventDetailComponent]
+  declarations: [RaceEventPageComponent]
 })
 export class RaceEventModule { }
