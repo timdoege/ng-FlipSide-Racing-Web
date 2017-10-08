@@ -1,10 +1,10 @@
-<md-card>
-  <md-nav-list>
-      <md-list-item *ngFor="let rEvent of raceEvents">
-        <a md-line href="events/{{rEvent.id}}">{{ rEvent.name }}</a>
-        <button md-icon-button (click)="infoClicked=!infoClicked">
-          <md-icon>info</md-icon>
+<mat-card>
+  <mat-nav-list>
+      <mat-list-item *ngFor="let rEvent of raceEvents">
+        <a mat-line href="events/{{rEvent.id}}">{{ rEvent.name }}</a>
+        <button mat-icon-button (click)="infoClicked=!infoClicked">
+          <mat-icon>info</mat-icon>
         </button>
-      </md-list-item>
-  </md-nav-list>
-</md-card>
+      </mat-list-item>
+  </mat-nav-list>
+</mat-card>

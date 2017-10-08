@@ -1,7 +1,7 @@
+import { CommonMaterialModule } from './common-material/common-material.module';
 import { RaceEventFactory } from './factory/race-event.factory';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '@angular/material';
 import { FlipsideService } from './flipside.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -18,8 +18,8 @@ import { AppComponent } from './app.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule,
     BrowserAnimationsModule,
+    CommonMaterialModule,
     AppRoutingModule
   ],
   providers: [FlipsideService, RaceEventFactory],

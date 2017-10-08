@@ -1,18 +1,18 @@
 <main>
-  <md-toolbar color="primary">
-    <span routerLink="/"><md-icon>ic_drive_eta</md-icon></span>
-
-    <span>{{title}}</span>
-
-    <button md-icon-button [md-menu-trigger-for]="menu">
-      <md-icon>more_vert</md-icon>
-    </button>
-  </md-toolbar>
-  <md-menu x-position="before" #menu="mdMenu">
-    <button md-menu-item routerLink="/dashboard">Dashboard</button>
-    <button md-menu-item routerLink="/events">Race Events</button>
-    <button md-menu-item routerLink="/racers">Racers</button>
-    <button md-menu-item routerLink="/statistics">Statistics</button>
-  </md-menu>
+  <mat-toolbar color="primary">
+      <mat-toolbar-row>
+          <span routerLink="/" class="example-icon"><mat-icon>ic_drive_eta</mat-icon></span>
+          <span class="example-icon">TM Racing</span>
+          <button class="example-icon" mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
+          </button>
+      </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-menu x-position="before" #menu="matMenu">
+    <button mat-menu-item routerLink="/dashboard">Dashboard</button>
+    <button mat-menu-item routerLink="/events">Race Events</button>
+    <button mat-menu-item routerLink="/racers">Racers</button>
+    <button mat-menu-item routerLink="/statistics">Statistics</button>
+  </mat-menu>
   <router-outlet></router-outlet>
 </main>
