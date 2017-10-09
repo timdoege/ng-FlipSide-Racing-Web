@@ -12,6 +12,7 @@ export class RaceEventListPageComponent implements OnInit {
 
   raceEvents: RaceEvent[];
   selectedRaceEvent: RaceEvent;
+  isBusy = false;
 
   constructor(private router: Router, private flipsideService: FlipsideService) { }
 
@@ -19,7 +20,12 @@ export class RaceEventListPageComponent implements OnInit {
     this.getRaceEvents();
   }
   getRaceEvents(): void {
-    this.flipsideService.getRaceEvents().then(rEvents => this.raceEvents = rEvents);
+    this.isBusy = true;
+    this.flipsideService.getRaceEvents(50, 0, 0).then((rEvents) => {
+      this.raceEvents = rEvents;
+      this.isBusy = false;
+    }
+    );
   }
 
   onSelect(rEvent: RaceEvent): void {

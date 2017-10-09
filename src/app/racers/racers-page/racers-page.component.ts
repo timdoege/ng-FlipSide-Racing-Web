@@ -1,3 +1,5 @@
+import { FlipsideService } from './../../flipside.service';
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RacersPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private location: Location, private flipsideService: FlipsideService) { }
 
   ngOnInit() {
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

@@ -1,4 +1,5 @@
 <mat-card>
+  <mat-spinner *ngIf="isBusy"></mat-spinner>
   <mat-nav-list>
       <mat-list-item *ngFor="let rEvent of raceEvents">
         <a mat-line href="events/{{rEvent.id}}">{{ rEvent.name }}</a>
