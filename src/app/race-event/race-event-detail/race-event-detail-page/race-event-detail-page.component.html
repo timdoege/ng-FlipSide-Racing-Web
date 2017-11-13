@@ -1,11 +1,31 @@
 <mat-card>
   <mat-card-header *ngIf="raceEvent">
     <img mat-card-avatar src="https://source.unsplash.com/random/200x200">
-    <mat-card-title>{{raceEvent[0].event_name}}</mat-card-title>
-    <mat-card-subtitle>{{raceEvent[0].best_time}}</mat-card-subtitle>
+    <mat-card-title>Winner: {{raceEvent[0].racer_name}}</mat-card-title>
+    <mat-card-subtitle>Laps: {{raceEvent[0].num_laps}}</mat-card-subtitle>
+    <mat-card-subtitle>Date: {{raceEvent[0].date_added}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content *ngIf="raceEvent">
-    <p>{{raceEvent[0].racer_name}}</p>
+
+    <div class="container-fluid" style="margin-top: 10px">
+
+      <div class="table-row header">
+        <div class="text">Pos.</div>
+        <div class="text">Racer</div>
+        <div class="text">Av. Lap Time</div>
+        <div class="text">Leading</div>
+        <div class="text">Best Time (No.)</div>
+      </div>
+
+      <div *ngFor="let entry of raceEvent; let i = index" class="table-row">
+        <div class="text">{{entry.rank}}</div>
+        <div class="text">{{entry.racer_name}}</div>
+        <div class="text">{{entry.average_time}}</div>
+        <div class="text">{{entry.laps_leading}}</div>
+        <div class="text">{{entry.best_time}} ({{entry.best_lap}})</div>
+      </div>
+    </div>
+
   </mat-card-content>
   <button mat-button (click)="goBack()">Back</button>
 </mat-card>

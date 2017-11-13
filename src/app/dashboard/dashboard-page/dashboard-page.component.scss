@@ -1,0 +1,44 @@
+/*
+ * Define the widths: play around with these to get a best fit.
+ */
+ $text-width: 180px;
+ $num-width: 80px;
+ 
+ // Main container: initialize the flex, direction is row
+ .table-row {
+   display: flex;           display: -webkit-flex;
+   flex-direction: row;     -webkit-flex-direction: row;
+   flex-grow: 0;            -webkit-flex-grow: 0;
+   flex-wrap: nowrap;       -webkit-flex-wrap: nowrap;
+   width: 100%;
+ }
+ 
+ // Text based cells: grow, truncate and show ellipsis when there is not enough space
+ .text {
+   flex-grow: 1;            -webkit-flex-grow: 1;
+   overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+ }
+ 
+ // Fix the minimum width of the leaf level cells
+ .text {
+   width: $text-width;
+ }
+ 
+ .num {
+   width: $num-width;
+ }
+ 
+  .table-row {
+   border-bottom: 2px solid #e0e0e0;
+   border-collapse: collapse;
+   padding-top: 5px;
+ }
+ 
+ .table-row.header {
+   font-weight: bold;
+   padding-top: 8px;
+   padding-bottom: 8px;
+ }
+ 

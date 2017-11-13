@@ -1,4 +1,30 @@
-<p>
-  dashboard-page works!
-</p>
+<mat-card>
+    <mat-card-header *ngIf="raceEvents">
+      <mat-card-title>TM Racing Dashboard</mat-card-title>
+    </mat-card-header>
+    <mat-card-content *ngIf="raceEvents">
+        <mat-spinner *ngIf="isBusy"></mat-spinner>
+        <mat-nav-list>
+            <mat-list-item *ngFor="let rEvent of raceEvents">
+              <a mat-line routerLink="events/{{rEvent.id}}"><strong>{{rEvent.id}}:</strong> {{ rEvent.name }} ({{ rEvent.race_type }}/{{ rEvent.round_type }} - {{ rEvent.num_laps }})</a>
+            </mat-list-item>
+        </mat-nav-list>
+            
+  
+      <div *ngIf="racerLaps" class="container-fluid" style="margin-top: 10px">
+  
+        <div class="table-row header">
+          <div class="text">Racer</div>
+          <div class="text">Lifetime Laps</div>
+        </div>
+  
+        <div *ngFor="let entry of racerLaps; let i = index" class="table-row">
+          <div class="text">{{entry.name}}</div>
+          <div class="text">{{entry.lifetimeLapCount}}</div>
+        </div>
+      </div>
+  
+    </mat-card-content>
+  </mat-card>
+  
 <router-outlet></router-outlet>

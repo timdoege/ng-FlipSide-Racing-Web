@@ -1,14 +1,14 @@
-import { RaceEventSummary } from './../../../model/race-event-summary.model';
-import { RaceEvent } from './../../../model/race-event.model';
-import { FlipsideService } from './../../../flipside.service';
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+
+import { FlipsideService } from './../../../flipside.service';
+import { RaceEventSummary } from './../../../model/race-event-summary.model';
 
 @Component({
   selector: 'app-race-event-detail-page',
   templateUrl: './race-event-detail-page.component.html',
-  styleUrls: ['./race-event-detail-page.component.css']
+  styleUrls: ['./race-event-detail-page.component.scss']
 })
 export class RaceEventDetailPageComponent implements OnInit {
   eventId: number;

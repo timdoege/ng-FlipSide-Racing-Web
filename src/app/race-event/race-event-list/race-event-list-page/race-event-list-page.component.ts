@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-race-event-list-page',
   templateUrl: './race-event-list-page.component.html',
-  styleUrls: ['./race-event-list-page.component.css']
+  styleUrls: ['./race-event-list-page.component.scss']
 })
 export class RaceEventListPageComponent implements OnInit {
 
@@ -21,7 +21,7 @@ export class RaceEventListPageComponent implements OnInit {
   }
   getRaceEvents(): void {
     this.isBusy = true;
-    this.flipsideService.getRaceEvents(50, 0, 0).then((rEvents) => {
+    this.flipsideService.getRaceEvents(200, 0, 0).then((rEvents) => {
       this.raceEvents = rEvents;
       this.isBusy = false;
     }

@@ -1,3 +1,4 @@
+import { RacerFactory } from './factory/racer.factory';
 import { RaceEventSummaryFactory } from './factory/race-event-summary.factory';
 import { CommonMaterialModule } from './common-material/common-material.module';
 import { RaceEventFactory } from './factory/race-event.factory';
@@ -25,7 +26,7 @@ import { AppComponent } from './app.component';
     CommonMaterialModule,
     AppRoutingModule
   ],
-  providers: [FlipsideService, RaceEventFactory, RaceEventSummaryFactory],
+  providers: [FlipsideService, RaceEventFactory, RaceEventSummaryFactory, RacerFactory],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -14,4 +14,5 @@ export class Racer {
     color: string;
     bestLapTime: string;
     bestLapTimeEventId: number;
+    lifetimeLapCount: number;
 }

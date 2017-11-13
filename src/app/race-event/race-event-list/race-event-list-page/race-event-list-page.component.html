@@ -2,10 +2,7 @@
   <mat-spinner *ngIf="isBusy"></mat-spinner>
   <mat-nav-list>
       <mat-list-item *ngFor="let rEvent of raceEvents">
-        <a mat-line href="events/{{rEvent.id}}">{{ rEvent.name }}</a>
-        <button mat-icon-button (click)="infoClicked=!infoClicked">
-          <mat-icon>info</mat-icon>
-        </button>
+        <a mat-line routerLink="{{rEvent.id}}"><strong>{{rEvent.id}}:</strong> {{ rEvent.name }} ({{ rEvent.race_type }}/{{ rEvent.round_type }} - {{ rEvent.num_laps }})</a>
       </mat-list-item>
   </mat-nav-list>
 </mat-card>

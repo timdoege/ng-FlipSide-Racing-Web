@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-racers-page',
   templateUrl: './racers-page.component.html',
-  styleUrls: ['./racers-page.component.css']
+  styleUrls: ['./racers-page.component.scss']
 })
 export class RacersPageComponent implements OnInit {
 
