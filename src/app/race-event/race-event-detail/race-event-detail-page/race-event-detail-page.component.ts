@@ -21,7 +21,9 @@ export class RaceEventDetailPageComponent implements OnInit {
         this.eventId = Number(params.id);
         this.flipsideService.getRaceEvent(this.eventId).then(rEvent =>
           this.raceEvent = rEvent
-        );
+        ).catch(err => {
+          console.log(err);
+        });
       });
   }
 

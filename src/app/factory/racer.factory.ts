@@ -1,5 +1,5 @@
-import { RaceEvent } from './../model/race-event.model';
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+
 import { Racer } from '../model/racer.model';
 
 @Injectable()
@@ -22,9 +22,10 @@ export class RacerFactory {
         r.rClass = json.rClass;
         r.make = json.make;
         r.model = json.model;
-        r.motor = r.motor;
+        r.motor = json.motor;
         r.bestLapTime = json.bestLapTime;
         r.bestLapTimeEventId = json.bestLapTimeEventId;
+        r.recentLapCount = json.recentLapCount;
 
         Object.freeze(r);
 

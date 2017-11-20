@@ -13,6 +13,10 @@ body {
     text-align: center;
   }
   
+  mat-nav-list {
+    justify-content: center;
+  }
+
   mat-toolbar-row {
     justify-content: space-between;
   }
@@ -22,4 +26,40 @@ body {
     bottom: 20px;
     right: 20px;
     color: white;
+  }
+ 
+
+  .table-row {
+    display: flex;           display: -webkit-flex;
+    flex-direction: row;     -webkit-flex-direction: row;
+    flex-grow: 0;            -webkit-flex-grow: 0;
+    flex-wrap: nowrap;       -webkit-flex-wrap: nowrap;
+    width: 100%;
+  }
+  
+  .text {
+    flex-grow: 1;            -webkit-flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .text {
+    width: 180px;
+  }
+  
+  .num {
+    width: 80px;
+  }
+  
+   .table-row {
+    border-bottom: 2px solid #e0e0e0;
+    border-collapse: collapse;
+    padding-top: 5px;
+  }
+  
+  .table-row.header {
+    font-weight: bold;
+    padding-top: 8px;
+    padding-bottom: 8px;
   }

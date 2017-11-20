@@ -1,3 +1,4 @@
+import { Track } from './track.model';
 // To parse this data:
 //
 //   import { RaceEventSummary } from "./RaceEventSummary;
@@ -15,4 +16,5 @@ export class RaceEventSummary {
     racer_name:   string;
     race_type:    string;
     rank:         number;
+    track: Track;
 }

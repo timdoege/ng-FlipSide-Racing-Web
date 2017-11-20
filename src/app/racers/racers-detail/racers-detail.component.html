@@ -1,0 +1,12 @@
+<mat-card *ngIf="racer">
+    <mat-card-header>
+      <mat-card-title>{{racer.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        Chassis: {{racer.chassis}} <br />
+        Motor: {{racer.motor}} <br />
+        Make: {{racer.make}} <br />
+      </mat-card-content>
+    <button mat-button (click)="goBack()">Back</button>
+  </mat-card>
+  

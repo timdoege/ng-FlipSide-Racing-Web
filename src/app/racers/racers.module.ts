@@ -2,7 +2,8 @@ import { CommonMaterialModule } from './../common-material/common-material.modul
 import { RacersRoutingModule } from './racers-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RacersPageComponent } from './racers-page/racers-page.component';
+import { RacersListComponent } from './racers-list/racers-list.component';
+import { RacersDetailComponent } from './racers-detail/racers-detail.component';
 
 @NgModule({
   imports: [
@@ -10,6 +11,6 @@ import { RacersPageComponent } from './racers-page/racers-page.component';
     CommonMaterialModule,
     RacersRoutingModule
   ],
-  declarations: [RacersPageComponent]
+  declarations: [RacersListComponent, RacersDetailComponent]
 })
 export class RacersModule { }

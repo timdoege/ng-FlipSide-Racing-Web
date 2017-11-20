@@ -1,21 +1,25 @@
-import { RacerFactory } from './factory/racer.factory';
-import { RaceEventSummaryFactory } from './factory/race-event-summary.factory';
-import { CommonMaterialModule } from './common-material/common-material.module';
-import { RaceEventFactory } from './factory/race-event.factory';
-import { AppRoutingModule } from './app-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlipsideService } from './flipside.service';
-import { BrowserModule } from '@angular/platform-browser';
+import { LapFactory } from './factory/lap.factory';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CommonMaterialModule } from './common-material/common-material.module';
+import { RaceEventSummaryFactory } from './factory/race-event-summary.factory';
+import { RaceEventFactory } from './factory/race-event.factory';
+import { RacerFactory } from './factory/racer.factory';
+import { TrackFactory } from './factory/track.factory';
+import { FlipsideService } from './flipside.service';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,8 @@ import { AppComponent } from './app.component';
     CommonMaterialModule,
     AppRoutingModule
   ],
-  providers: [FlipsideService, RaceEventFactory, RaceEventSummaryFactory, RacerFactory],
+  providers: [FlipsideService, RaceEventFactory, RaceEventSummaryFactory, RacerFactory,
+    TrackFactory, LapFactory],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,32 +1,41 @@
+import 'rxjs/add/operator/toPromise';
 
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
-import 'rxjs/add/operator/toPromise';
-
+import { LapFactory } from './factory/lap.factory';
 import { RaceEventSummaryFactory } from './factory/race-event-summary.factory';
 import { RaceEventFactory } from './factory/race-event.factory';
 import { RacerFactory } from './factory/racer.factory';
+import { TrackFactory } from './factory/track.factory';
+import { Lap } from './model/lap.model';
 import { RaceEventSummary } from './model/race-event-summary.model';
 import { RaceEvent } from './model/race-event.model';
 import { Racer } from './model/racer.model';
+import { Track } from './model/track.model';
 
 const apiServer = 'http://localhost:8080';
 // const apiServer = 'http://galdor.tm.dom:8080';
+// const flipsideBaseUrl = 'http://localhost:3000/';  // URL to web api
 const baseUrl = apiServer + '/TMSupportAlert';
 const flipsideBaseUrl = baseUrl + '/misc/';  // URL to web api
-// const flipsideBaseUrl = 'http://localhost:3000/';  // URL to web api
 const flipsideEventsUrl = flipsideBaseUrl + 'events';
 const flipsideRacerLapsUrl = flipsideBaseUrl + 'statistics_racer';
 const flipsideRacersUrl = flipsideBaseUrl + 'racers';
+const flipsideTracksUrl = flipsideBaseUrl + 'tracks';
+const flipsideBestLapsUrl = flipsideBaseUrl + 'bestlaps';
 
 @Injectable()
 export class FlipsideService {
 
   constructor(private httpc: HttpClient, private http: Http,
-    private raceEventFactory: RaceEventFactory, private raceEventSummaryFactory: RaceEventSummaryFactory,
-    private racerFactory: RacerFactory) { }
+    private raceEventFactory: RaceEventFactory,
+    private raceEventSummaryFactory: RaceEventSummaryFactory,
+    private racerFactory: RacerFactory,
+    private trackFactory: TrackFactory,
+    private lapFactory: LapFactory,
+  ) { }
 
   getRaceEvents(pageSize: number, page: number, sort: number): Promise<RaceEvent[]> {
     return this.getRaceEventsClient(pageSize, page, sort);
@@ -124,4 +133,71 @@ export class FlipsideService {
     return Promise.resolve(res);
   }
 
+  getRacer(id: number): Promise<Racer> {
+    return this.httpc.get(flipsideRacersUrl + '/' + id)
+      .toPromise()
+      .then(response => this.handleGetRacerResponse(response))
+      .catch(this.handleError);
+  }
+
+  private handleGetRacerResponse(response: any): Promise<any> {
+    const res: Racer = this.racerFactory.newInstanceFromJSON(response);
+    return Promise.resolve(res);
+  }
+
+  getTracks(): Promise<Track[]> {
+    return this.httpc.get(flipsideTracksUrl)
+      .toPromise()
+      .then(response => this.handleGetTracksResponse(response))
+      .catch(this.handleError);
+  }
+
+  private handleGetTracksResponse(response: any): Promise<any> {
+    const res: Track[] = [];
+    for (const entry of response) {
+      let t: Track;
+      t = this.trackFactory.newInstanceFromJSON(entry);
+      res.push(t);
+    }
+    return Promise.resolve(res);
+  }
+
+  getTrack(id: number): Promise<Track> {
+    return this.httpc.get(flipsideTracksUrl + '/' + id)
+      .toPromise()
+      .then(response => this.handleGetTrackResponse(response))
+      .catch(this.handleError);
+  }
+
+  getCurrentTrack(): Promise<Track> {
+    return this.httpc.get(flipsideTracksUrl + '/current')
+      .toPromise()
+      .then(response => this.handleGetTrackResponse(response))
+      .catch(this.handleError);
+  }
+
+  private handleGetTrackResponse(response: any): Promise<any> {
+    const res: Track = this.trackFactory.newInstanceFromJSON(response);
+    return Promise.resolve(res);
+  }
+
+  getBestLapsForTrack(trackId: number): Promise<Lap[]> {
+    // let params = new HttpParams();
+    // params = params.append('trackId', String(trackId));
+
+    return this.httpc.get(flipsideBestLapsUrl + '/' + trackId) // , { params: params }
+      .toPromise()
+      .then(response => this.handleGetBestLapsForTrackResponse(response))
+      .catch(this.handleError);
+  }
+
+  private handleGetBestLapsForTrackResponse(response: any): Promise<any> {
+    const res: Lap[] = [];
+    for (const entry of response) {
+      let t: Lap;
+      t = this.lapFactory.newInstanceFromJSON(entry);
+      res.push(t);
+    }
+    return Promise.resolve(res);
+  }
 }

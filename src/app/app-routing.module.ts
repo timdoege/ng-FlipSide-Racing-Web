@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
 
@@ -21,6 +22,11 @@ const routes: Routes = [
     path: 'racers',
     loadChildren: './racers/racers.module#RacersModule'
   },
+  {
+    path: 'tracks',
+    loadChildren: './tracks/tracks.module#TracksModule'
+  },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

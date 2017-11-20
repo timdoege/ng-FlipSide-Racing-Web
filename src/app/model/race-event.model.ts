@@ -1,3 +1,4 @@
+import { Track } from './track.model';
 export class RaceEvent {
     id: number;
     name: string;
@@ -14,4 +15,5 @@ export class RaceEvent {
     best_time: number;
     average_time: number;
     laps_leading: number;
+    track: Track;
 }

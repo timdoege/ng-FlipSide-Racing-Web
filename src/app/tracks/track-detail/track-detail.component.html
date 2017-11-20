@@ -1,0 +1,28 @@
+<mat-card *ngIf="track">
+  <mat-card-header>
+    <mat-card-title>{{track.name}}</mat-card-title>
+    <mat-card-subtitle>{{track.description}}</mat-card-subtitle>
+    <mat-card-subtitle>{{track.fromDate}} - {{track.toDate}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="container-fluid" style="margin-top: 10px">
+
+      <div class="table-row header">
+        <div class="text">Racer</div>
+        <div class="text">Time</div>
+        <div class="text">Event</div>
+      </div>
+
+      <div *ngFor="let entry of bestLaps; let i = index" class="table-row">
+        <div class="text">{{entry.racerName}}</div>
+        <div class="text">{{entry.bestLap}}</div>
+        <div class="text">
+            <a mat-line routerLink="/events/{{entry.eventId}}">
+              {{entry.eventDate}} ({{entry.eventId}})
+            </a>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+  <button mat-button (click)="goBack()">Back</button>
+</mat-card>

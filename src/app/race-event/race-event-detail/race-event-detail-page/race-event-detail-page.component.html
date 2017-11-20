@@ -1,9 +1,10 @@
 <mat-card>
-  <mat-card-header *ngIf="raceEvent">
-    <img mat-card-avatar src="https://source.unsplash.com/random/200x200">
+  <mat-card-header *ngIf="raceEvent && raceEvent.length > 0">
+    <img mat-card-avatar src="https://source.unsplash.com/200x200/?{{raceEvent[0].racer_name}}">
     <mat-card-title>Winner: {{raceEvent[0].racer_name}}</mat-card-title>
     <mat-card-subtitle>Laps: {{raceEvent[0].num_laps}}</mat-card-subtitle>
     <mat-card-subtitle>Date: {{raceEvent[0].date_added}}</mat-card-subtitle>
+    <mat-card-subtitle>Track: {{raceEvent[0].track.name}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content *ngIf="raceEvent">
 

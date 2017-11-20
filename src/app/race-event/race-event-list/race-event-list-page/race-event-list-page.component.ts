@@ -13,6 +13,8 @@ export class RaceEventListPageComponent implements OnInit {
   raceEvents: RaceEvent[];
   selectedRaceEvent: RaceEvent;
   isBusy = false;
+  page = 0;
+  pageSize = 25;
 
   constructor(private router: Router, private flipsideService: FlipsideService) { }
 
@@ -21,19 +23,21 @@ export class RaceEventListPageComponent implements OnInit {
   }
   getRaceEvents(): void {
     this.isBusy = true;
-    this.flipsideService.getRaceEvents(200, 0, 0).then((rEvents) => {
+    this.flipsideService.getRaceEvents(this.pageSize, this.page, 0).then((rEvents) => {
       this.raceEvents = rEvents;
       this.isBusy = false;
-    }
-    );
+    }).catch(err => {
+      console.log('flipsideService.getRaceEvents: ', err);
+    });
   }
 
-  onSelect(rEvent: RaceEvent): void {
-    console.log('User selected ', rEvent);
-    this.selectedRaceEvent = rEvent;
+  onNextPage(): void {
+    this.page++;
+    this.getRaceEvents();
+  }
+  onPreviousPage(rEvent: RaceEvent): void {
+    this.page--;
+    this.getRaceEvents();
   }
 
-  gotoDetail(): void {
-    this.router.navigate(['/detail', this.selectedRaceEvent.id]);
-  }
 }

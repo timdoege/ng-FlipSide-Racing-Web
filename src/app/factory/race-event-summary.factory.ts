@@ -1,9 +1,12 @@
+import { TrackFactory } from './track.factory';
+import { Injectable } from '@angular/core';
+
 import { RaceEventSummary } from './../model/race-event-summary.model';
-import { RaceEvent } from './../model/race-event.model';
-import { Inject, Injectable } from '@angular/core';
 
 @Injectable()
 export class RaceEventSummaryFactory {
+    constructor(private trackFactory: TrackFactory) {}
+
     newInstance(): RaceEventSummary {
         return new RaceEventSummary();
     }
@@ -26,6 +29,9 @@ export class RaceEventSummaryFactory {
         e.average_time = Number(json.average_time);
         e.laps_leading = Number(json.laps_leading);
 
+        if (json.trackDefinition) {
+            e.track = this.trackFactory.newInstanceFromJSON(json.trackDefinition);
+        }
         Object.freeze(e);
 
         return e;

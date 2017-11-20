@@ -1,0 +1,10 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Racers</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-nav-list>
+      <a mat-list-item *ngFor="let racer of racers" routerLink="{{racer.id}}">{{racer.name}}</a>
+    </mat-nav-list>
+  </mat-card-content>
+</mat-card>
