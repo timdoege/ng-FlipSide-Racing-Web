@@ -26,6 +26,8 @@ export class TrackHistoryComponent implements OnInit {
     }
     );
   }
-
+  onClick(trackId: number): void {
+    this.router.navigateByUrl('/tracks/' + trackId);
+  }
 
 }

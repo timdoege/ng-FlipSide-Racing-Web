@@ -3,19 +3,22 @@
     <mat-card-title>Events</mat-card-title>
     <mat-spinner [diameter]="25" *ngIf="isBusy"></mat-spinner>
     <mat-card-subtitle>Page {{page+1}}
-        <button mat-button (click)="onNextPage()">Next</button>
-        <button [disabled]="page === 0" mat-button (click)="onPreviousPage()">Previous</button>
-        
-
+      <button mat-button (click)="onNextPage()">Next</button>
+      <button [disabled]="page === 0" mat-button (click)="onPreviousPage()">Previous</button>
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <mat-nav-list>
-        <a mat-list-item *ngFor="let rEvent of raceEvents; let idx = index"
-         [routerLink]="['/events', rEvent.id]">
-          <strong>{{rEvent.id}}:</strong>&nbsp; {{ rEvent.name }} ({{ rEvent.race_type }}/{{ rEvent.round_type }} - {{ rEvent.num_laps
-          }})
-        </a>
+      <a mat-list-item *ngFor="let rEvent of raceEvents; let idx = index" [routerLink]="['/events', rEvent.id]">
+        <span mat-list-avatar>{{rEvent.id}}</span>
+        <h3 mat-line>{{ rEvent.name }}
+        </h3>
+        <p mat-line>
+          <span>
+            {{ rEvent.race_type }}/{{ rEvent.round_type }} - {{ rEvent.num_laps }} rounds
+          </span>
+        </p>
+      </a>
     </mat-nav-list>
   </mat-card-content>
 </mat-card>

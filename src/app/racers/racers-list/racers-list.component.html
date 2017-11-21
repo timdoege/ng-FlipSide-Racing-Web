@@ -4,7 +4,11 @@
   </mat-card-header>
   <mat-card-content>
     <mat-nav-list>
-      <a mat-list-item *ngFor="let racer of racers" routerLink="{{racer.id}}">{{racer.name}}</a>
+      <a mat-list-item *ngFor="let racer of racers" routerLink="{{racer.id}}">
+        <span mat-list-avatar>{{racer.id}}</span>
+        <h3 mat-line>{{racer.name}}
+        </h3>
+      </a>
     </mat-nav-list>
   </mat-card-content>
 </mat-card>

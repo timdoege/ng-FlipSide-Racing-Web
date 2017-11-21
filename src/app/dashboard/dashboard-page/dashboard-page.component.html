@@ -5,17 +5,24 @@
   <mat-card-content *ngIf="raceEvents">
     <mat-spinner *ngIf="isBusy"></mat-spinner>
     <mat-nav-list>
-      <a mat-list-item *ngFor="let rEvent of raceEvents" routerLink="/events/{{rEvent.id}}">
-        <strong>{{rEvent.id}}:</strong>&nbsp;{{ rEvent.name }} ({{ rEvent.race_type }}/{{ rEvent.round_type }} - {{ rEvent.num_laps }})
-      </a>
-    </mat-nav-list>
+        <a mat-list-item *ngFor="let rEvent of raceEvents; let idx = index" [routerLink]="['/events', rEvent.id]">
+          <span mat-list-avatar>{{rEvent.id}}</span>
+          <h3 mat-line>{{ rEvent.name }}
+          </h3>
+          <p mat-line>
+            <span>
+              {{ rEvent.race_type }}/{{ rEvent.round_type }} - {{ rEvent.num_laps }} rounds
+            </span>
+          </p>
+        </a>
+      </mat-nav-list>
   </mat-card-content>
 </mat-card>
 <mat-card>
-  <mat-card-header *ngIf="raceEvents">
+  <mat-card-header *ngIf="racerLaps">
     <mat-card-title>Lap count</mat-card-title>
   </mat-card-header>
-  <mat-card-content *ngIf="raceEvents">
+  <mat-card-content *ngIf="racerLaps">
     <mat-spinner *ngIf="isBusy"></mat-spinner>
     <div *ngIf="racerLaps" class="container-fluid" style="margin-top: 10px">
 
@@ -29,6 +36,38 @@
         <div class="text"><a routerLink="/racers/{{entry.id}}">{{entry.name}}</a></div>
         <div class="text">{{entry.lifetimeLapCount}}</div>
         <div class="text">{{entry.recentLapCount ? entry.recentLapCount : 0}}</div>
+      </div>
+    </div>
+
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header *ngIf="racerRanks">
+    <mat-card-title>Ranks</mat-card-title>
+  </mat-card-header>
+  <mat-card-content *ngIf="racerRanks">
+    <mat-spinner *ngIf="isBusy"></mat-spinner>
+    <div *ngIf="racerRanks" class="container-fluid" style="margin-top: 10px">
+
+      <div class="table-row header">
+        <div class="text">Racer</div>
+        <div class="text">Lifetime</div>
+        <div class="text">Current Track</div>
+      </div>
+
+      <div *ngFor="let entry of racerRanks; let i = index" class="table-row">
+        <div class="text"><a routerLink="/racers/{{entry.id}}">{{entry.name}}</a></div>
+        <div class="text">
+          <span *ngFor="let rank of entry.lifetimeRanks; let r = index">
+              <strong>{{r+1}}:</strong> [{{rank}}]&nbsp;
+          </span>
+        </div>
+        <div class="text">
+            <span *ngFor="let rank of entry.recentRanks; let r = index">
+                <strong>{{r+1}}:</strong> [{{rank}}]&nbsp;
+            </span>
+        </div>
       </div>
     </div>
 

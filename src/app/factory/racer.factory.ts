@@ -26,6 +26,12 @@ export class RacerFactory {
         r.bestLapTime = json.bestLapTime;
         r.bestLapTimeEventId = json.bestLapTimeEventId;
         r.recentLapCount = json.recentLapCount;
+        if (json.lifetimeRanks) {
+            r.lifetimeRanks = json.lifetimeRanks;
+        }
+        if (json.recentRanks) {
+            r.recentRanks = json.recentRanks;
+        }
 
         Object.freeze(r);
 

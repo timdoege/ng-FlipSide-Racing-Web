@@ -13,12 +13,14 @@ export class DashboardPageComponent implements OnInit {
 
   raceEvents: RaceEvent[];
   racerLaps: Racer[];
+  racerRanks: Racer[];
   isBusy = false;
 
   constructor(private flipsideService: FlipsideService) { }
 
   ngOnInit() {
     this.getRacerLaps();
+    this.getRacerRanks();
     this.getLatestRaceEvents();
   }
 
@@ -35,6 +37,15 @@ export class DashboardPageComponent implements OnInit {
     this.isBusy = true;
     this.flipsideService.getRacerLaps().then((racers) => {
       this.racerLaps = racers;
+      this.isBusy = false;
+    }
+    );
+  }
+
+  getRacerRanks(): void {
+    this.isBusy = true;
+    this.flipsideService.getRacerRanks().then((racers) => {
+      this.racerRanks = racers;
       this.isBusy = false;
     }
     );

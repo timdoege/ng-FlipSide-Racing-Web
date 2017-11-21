@@ -16,4 +16,6 @@ export class Racer {
     bestLapTimeEventId: number;
     lifetimeLapCount: number;
     recentLapCount: number;
+    lifetimeRanks: number[];
+    recentRanks: number[];
 }

@@ -22,6 +22,7 @@ const baseUrl = apiServer + '/TMSupportAlert';
 const flipsideBaseUrl = baseUrl + '/misc/';  // URL to web api
 const flipsideEventsUrl = flipsideBaseUrl + 'events';
 const flipsideRacerLapsUrl = flipsideBaseUrl + 'statistics_racer';
+const flipsideRacerRanksUrl = flipsideBaseUrl + 'statistics_ranks';
 const flipsideRacersUrl = flipsideBaseUrl + 'racers';
 const flipsideTracksUrl = flipsideBaseUrl + 'tracks';
 const flipsideBestLapsUrl = flipsideBaseUrl + 'bestlaps';
@@ -200,4 +201,23 @@ export class FlipsideService {
     }
     return Promise.resolve(res);
   }
+
+  getRacerRanks(): Promise<Racer[]> {
+    return this.httpc.get(flipsideRacerRanksUrl)
+      .toPromise()
+      .then(response => this.handleGetRacerRanksResponse(response))
+      .catch(this.handleError);
+  }
+
+  private handleGetRacerRanksResponse(response: any): Promise<any> {
+    const res: Racer[] = [];
+    for (const entry of response) {
+      let r: Racer;
+      r = this.racerFactory.newInstanceFromJSON(entry);
+      res.push(r);
+    }
+    return Promise.resolve(res);
+  }
+
+
 }
