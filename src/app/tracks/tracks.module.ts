@@ -5,6 +5,7 @@ import { CommonMaterialModule } from '../common-material/common-material.module'
 import { TrackDetailComponent } from './track-detail/track-detail.component';
 import { TrackHistoryComponent } from './track-history/track-history.component';
 import { TracksRoutingModule } from './tracks-routing.module';
+import { TrackEditComponent } from './track-edit/track-edit.component';
 
 @NgModule({
   imports: [
@@ -12,6 +13,6 @@ import { TracksRoutingModule } from './tracks-routing.module';
     CommonMaterialModule,
     TracksRoutingModule
   ],
-  declarations: [TrackHistoryComponent, TrackDetailComponent]
+  declarations: [TrackHistoryComponent, TrackDetailComponent, TrackEditComponent]
 })
 export class TracksModule { }
