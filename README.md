@@ -7,7 +7,9 @@ Currently using ng cli 1.6.3 and Angular 5.1.3
 To update to latest version of Angular:
 `npm update -D &amp;&amp; npm update -S`
 
+## Code scaffolding
 
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 Build:
 <code>ng build --aot --prod --build-optimizer=false --base-href "/flip/"</code>
