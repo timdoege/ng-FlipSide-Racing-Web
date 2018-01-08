@@ -15,8 +15,8 @@ import { RaceEvent } from './model/race-event.model';
 import { Racer } from './model/racer.model';
 import { Track } from './model/track.model';
 
-const apiServer = 'http://localhost:8080';
-// const apiServer = 'http://galdor.tm.dom:8080';
+// const apiServer = 'http://localhost:8080';
+const apiServer = 'http://galdor.tm.dom:8080';
 // const flipsideBaseUrl = 'http://localhost:3000/';  // URL to web api
 const baseUrl = apiServer + '/TMSupportAlert';
 const flipsideBaseUrl = baseUrl + '/misc/';  // URL to web api
@@ -218,6 +218,5 @@ export class FlipsideService {
     }
     return Promise.resolve(res);
   }
-
 
 }

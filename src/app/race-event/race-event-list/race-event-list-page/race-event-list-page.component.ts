@@ -35,7 +35,7 @@ export class RaceEventListPageComponent implements OnInit {
     this.page++;
     this.getRaceEvents();
   }
-  onPreviousPage(rEvent: RaceEvent): void {
+  onPreviousPage(): void {
     this.page--;
     this.getRaceEvents();
   }

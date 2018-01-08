@@ -1,7 +1,27 @@
 # TmRacing
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.3.
 
+Upgrade:
+Currently using ng cli 1.6.3 and Angular 5.1.3
+
+To update to latest version of Angular:
+`npm update -D &amp;&amp; npm update -S`
+
+
+
+Build:
+<code>ng build --aot --prod --build-optimizer=false --base-href "/flip/"</code>
+
+Assets:
+1. <code>\\galdor\c$\Apps\WCSSupportPhone\Flip</code>: Folder for tmtracks.csv and tmtrackhistory.csv 
+1. <code>\\galdor\c$\Apps\WCSSupportPhone\FlipWeb</code>: Dist of ng build
+
+Cleanup
+<code>
+delete from laps_table where event_id in  (977,1023,722,774,781)
+delete from laps_backup_table  where event_id in  (977,1023,722,774,781)
+delete from summary_table where event_id in (977,1023,722,774,781)
+</code>
 ## Data model (Flipside Racing)
 
 Data is collected from an offline-version of the Flipside Racing database, served as JSON from here:
